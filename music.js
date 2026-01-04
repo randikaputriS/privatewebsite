@@ -1,6 +1,6 @@
 // ============================================
 // MUSIC SYSTEM - FIXED VERSION
-// Music continues across all pages
+// Music continues across a page transition with fade effects
 // ============================================
 
 class MusicPlayer {
