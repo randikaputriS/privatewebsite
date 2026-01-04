@@ -1,7 +1,7 @@
 // ============================================
-// MUSIC SYSTEM
+// MUSIC SYSTEM - FIXED VERSION
+// Music continues across all pages
 // ============================================
-// Handles background music with fade effects
 
 class MusicPlayer {
     constructor() {
@@ -23,6 +23,9 @@ class MusicPlayer {
         
         // Create music control button
         this.createMusicButton();
+        
+        // Try to restore playing state if coming from another page
+        this.checkAndResumeMusic();
     }
     
     createMusicButton() {
@@ -41,6 +44,20 @@ class MusicPlayer {
         document.body.appendChild(button);
     }
     
+    checkAndResumeMusic() {
+        // Check if music should be playing (from sessionStorage)
+        const shouldPlay = sessionStorage.getItem('musicPlaying');
+        const currentTime = sessionStorage.getItem('musicTime');
+        
+        if (shouldPlay === 'true') {
+            console.log('Resuming music on dashboard...');
+            if (currentTime) {
+                this.audio.currentTime = parseFloat(currentTime);
+            }
+            this.play();
+        }
+    }
+    
     async play() {
         console.log('Attempting to play music...');
         
@@ -51,6 +68,9 @@ class MusicPlayer {
             // Try to play
             await this.audio.play();
             this.isPlaying = true;
+            
+            // Save state
+            sessionStorage.setItem('musicPlaying', 'true');
             
             // Show music button
             const button = document.getElementById('musicButton');
@@ -67,6 +87,13 @@ class MusicPlayer {
                 this.fadeToQuiet();
             }, 3000);
             
+            // Keep saving current time for page transitions
+            setInterval(() => {
+                if (this.isPlaying) {
+                    sessionStorage.setItem('musicTime', this.audio.currentTime);
+                }
+            }, 1000);
+            
         } catch (error) {
             console.log('Auto-play blocked, showing play button...');
             this.showPlayPrompt();
@@ -78,7 +105,7 @@ class MusicPlayer {
         
         const startVolume = this.audio.volume;
         const volumeDiff = startVolume - this.quietVolume;
-        const steps = 60; // 60 steps for smooth fade
+        const steps = 60;
         const stepDuration = this.fadeDuration / steps;
         let currentStep = 0;
         
@@ -152,6 +179,7 @@ class MusicPlayer {
         console.log('Pausing music...');
         this.audio.pause();
         this.isPlaying = false;
+        sessionStorage.setItem('musicPlaying', 'false');
         
         const button = document.getElementById('musicButton');
         if (button) {
@@ -164,6 +192,7 @@ class MusicPlayer {
         console.log('Resuming music...');
         this.audio.play();
         this.isPlaying = true;
+        sessionStorage.setItem('musicPlaying', 'true');
         
         const button = document.getElementById('musicButton');
         if (button) {
@@ -183,6 +212,13 @@ class MusicPlayer {
             
             // Pulse animation to draw attention
             button.style.animation = 'pulse 2s ease-in-out infinite';
+            
+            // When clicked, actually start the music
+            button.addEventListener('click', () => {
+                this.play();
+                button.classList.remove('play-prompt');
+                button.style.animation = '';
+            }, { once: true });
         }
     }
 }
