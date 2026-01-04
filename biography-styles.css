@@ -1,0 +1,293 @@
+/* ============================================
+   BIOGRAPHY PAGE STYLES
+   ============================================ */
+
+.biography-page {
+    background: linear-gradient(135deg, #ffd1dc 0%, #ffb3c1 50%, #ff8fa3 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.bio-container {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Back Button */
+.back-button {
+    background: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 1em;
+    font-family: 'Georgia', serif;
+    color: #e91e63;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.back-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+/* Biography Card */
+.bio-card {
+    background: white;
+    border-radius: 25px;
+    padding: 40px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    animation: fadeIn 1s ease-in;
+}
+
+/* Header */
+.bio-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.bio-title {
+    font-size: 3em;
+    color: #e91e63;
+    margin-bottom: 10px;
+}
+
+.bio-subtitle {
+    font-size: 1.2em;
+    color: #c2185b;
+    font-style: italic;
+}
+
+/* Profile Section */
+.bio-profile {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.bio-image-container {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 20px;
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid #ffb3c1;
+    box-shadow: 0 10px 30px rgba(233, 30, 99, 0.3);
+}
+
+.bio-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none; /* Hidden by default until you add image */
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ffe0e9 0%, #ffd1dc 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.placeholder-text {
+    color: #c2185b;
+    font-size: 1.2em;
+    text-align: center;
+    line-height: 1.6;
+}
+
+.bio-name {
+    font-size: 2.5em;
+    color: #e91e63;
+    margin-bottom: 15px;
+}
+
+.bio-basic-info {
+    font-size: 1.2em;
+    color: #5d1f1f;
+    line-height: 1.8;
+}
+
+.bio-basic-info strong {
+    color: #c2185b;
+}
+
+/* Section Styles */
+.bio-section {
+    margin-bottom: 35px;
+    padding: 25px;
+    background: linear-gradient(135deg, #fff5f7 0%, #ffe8ef 100%);
+    border-radius: 20px;
+    border-left: 5px solid #e91e63;
+    animation: slideUp 0.8s ease-out;
+}
+
+.section-title {
+    font-size: 1.8em;
+    color: #e91e63;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Favorites Grid */
+.favorites-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.favorite-item {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.favorite-item:hover {
+    transform: translateY(-5px);
+}
+
+.favorite-icon {
+    font-size: 2em;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.favorite-text {
+    font-size: 1em;
+    color: #5d1f1f;
+    font-weight: 500;
+}
+
+/* Personality Tags */
+.personality-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.personality-tag {
+    background: linear-gradient(135deg, #e91e63 0%, #c2185b 100%);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 1.1em;
+    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.personality-tag:hover {
+    transform: scale(1.1);
+}
+
+/* Text Content */
+.bio-text-content {
+    font-size: 1.2em;
+    line-height: 1.9;
+    color: #5d1f1f;
+    text-align: justify;
+}
+
+.bio-text-content p {
+    margin-bottom: 20px;
+}
+
+/* Special Memory Section */
+.special-memory {
+    background: linear-gradient(135deg, #ffe0e9 0%, #ffd1dc 100%);
+    border-left: 5px solid #c2185b;
+}
+
+.memory-card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    margin-top: 15px;
+}
+
+.memory-date {
+    font-size: 1.3em;
+    color: #e91e63;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.memory-content {
+    font-size: 1.15em;
+    line-height: 1.8;
+    color: #5d1f1f;
+    text-align: center;
+    font-style: italic;
+}
+
+/* Footer */
+.bio-footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 2px solid #ffb3c1;
+}
+
+.closing-text {
+    font-size: 1.3em;
+    color: #c2185b;
+    font-style: italic;
+    margin-top: 15px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { 
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .bio-card {
+        padding: 25px;
+    }
+    
+    .bio-title {
+        font-size: 2em;
+    }
+    
+    .bio-name {
+        font-size: 2em;
+    }
+    
+    .favorites-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .section-title {
+        font-size: 1.5em;
+    }
+    
+    .bio-text-content {
+        font-size: 1.1em;
+        text-align: left;
+    }
+}

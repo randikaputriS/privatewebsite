@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💕</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- LOGIN PAGE -->
+    <div id="loginPage" class="login-container">
+        <div class="login-box">
+            <h1 class="login-title">What is your name?</h1>
+            <input 
+                type="text" 
+                id="nameInput" 
+                class="name-input" 
+                placeholder="Enter your full name"
+                autocomplete="off"
+            >
+            <button id="submitBtn" class="submit-btn">Enter</button>
+            <p id="errorMessage" class="error-message"></p>
+        </div>
+    </div>
+
+    <!-- WELCOME ANIMATION PAGE -->
+    <div id="welcomePage" class="welcome-container" style="display: none;">
+        <!-- Heart animation canvas will be inserted here -->
+    </div>
+
+    <!-- Load JavaScript files in correct order -->
+    <script src="messages.js"></script>
+    <script src="music.js"></script>
+    <script src="login.js"></script>
+</body>
+</html>

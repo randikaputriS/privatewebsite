@@ -1,0 +1,401 @@
+/* ============================================
+   KAMILA'S WEBSITE - COMPLETE STYLES
+   ============================================ */
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    background: linear-gradient(135deg, #ffd1dc 0%, #ffb3c1 50%, #ff8fa3 100%);
+    min-height: 100vh;
+    color: #4a0e0e;
+    overflow-x: hidden;
+}
+
+/* ============================================
+   LOGIN PAGE STYLES
+   ============================================ */
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.login-box {
+    background: white;
+    padding: 50px 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    animation: fadeIn 1s ease-in;
+}
+
+.login-title {
+    font-size: 2em;
+    color: #e91e63;
+    margin-bottom: 30px;
+    font-weight: normal;
+}
+
+.name-input {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1em;
+    border: 2px solid #ffb3c1;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-family: 'Georgia', serif;
+    transition: border-color 0.3s ease;
+}
+
+.name-input:focus {
+    outline: none;
+    border-color: #e91e63;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2em;
+    background: linear-gradient(135deg, #e91e63 0%, #c2185b 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Georgia', serif;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(233, 30, 99, 0.4);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+.error-message {
+    color: #c2185b;
+    font-size: 1em;
+    margin-top: 15px;
+    font-style: italic;
+    min-height: 24px;
+}
+
+/* ============================================
+   WELCOME ANIMATION PAGE
+   ============================================ */
+
+.welcome-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.welcome-text-container {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1001;
+}
+
+.welcome-text {
+    font-size: 2.5em;
+    color: white;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 20px rgba(0,0,0,0.5), 0 0 40px rgba(233, 30, 99, 0.3);
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.welcome-home {
+    font-size: 3.8em;
+    color: white;
+    font-weight: bold;
+    text-shadow: 3px 3px 20px rgba(0,0,0,0.5), 0 0 50px rgba(233, 30, 99, 0.4);
+    opacity: 0;
+    transform: scale(0.8);
+    letter-spacing: 2px;
+}
+
+/* ============================================
+   MAIN WEBSITE STYLES
+   ============================================ */
+
+#mainWebsite {
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Header Section */
+.header {
+    text-align: center;
+    padding: 40px 20px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+    animation: fadeIn 1s ease-in;
+}
+
+.header h1 {
+    font-size: 3em;
+    color: #e91e63;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(233, 30, 99, 0.2);
+}
+
+.header p {
+    font-size: 1.2em;
+    color: #c2185b;
+    font-style: italic;
+}
+
+/* Section Styles */
+.section {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+    animation: slideUp 0.8s ease-out;
+}
+
+.section h2 {
+    color: #e91e63;
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+    border-bottom: 3px solid #ffb3c1;
+    padding-bottom: 10px;
+}
+
+/* Birthday Message */
+.birthday-message {
+    font-size: 1.2em;
+    line-height: 1.8;
+    text-align: center;
+    color: #5d1f1f;
+}
+
+.birthday-message p {
+    margin-bottom: 15px;
+}
+
+/* 10 Facts List */
+.facts-list {
+    list-style: none;
+    padding: 0;
+}
+
+.facts-list li {
+    background: linear-gradient(135deg, #ffe0e9 0%, #ffd1dc 100%);
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    border-left: 5px solid #e91e63;
+    font-size: 1.1em;
+    line-height: 1.6;
+    transition: transform 0.3s ease;
+}
+
+.facts-list li:hover {
+    transform: translateX(10px);
+}
+
+.facts-list strong {
+    color: #c2185b;
+}
+
+/* Monthly Message Section */
+.monthly-message-section {
+    text-align: center;
+}
+
+.date-display {
+    font-size: 1.3em;
+    color: #c2185b;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.message-box {
+    background: linear-gradient(135deg, #ffe0e9 0%, #ffd1dc 100%);
+    padding: 30px;
+    border-radius: 15px;
+    border: 3px solid #e91e63;
+    margin-top: 20px;
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+    line-height: 1.8;
+    color: #5d1f1f;
+}
+
+.locked-message {
+    color: #c2185b;
+    font-style: italic;
+}
+
+/* Decorative Elements */
+.paw-prints {
+    text-align: center;
+    font-size: 2em;
+    margin: 20px 0;
+    opacity: 0.3;
+}
+
+.hearts {
+    text-align: center;
+    font-size: 2em;
+    margin: 20px 0;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    color: white;
+    margin-top: 40px;
+    font-size: 1.1em;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.footer p {
+    margin-bottom: 10px;
+}
+
+/* ============================================
+   MUSIC BUTTON
+   ============================================ */
+
+.music-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #e91e63 0%, #c2185b 100%);
+    color: white;
+    border: none;
+    font-size: 1.8em;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(233, 30, 99, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.music-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 30px rgba(233, 30, 99, 0.6);
+}
+
+.music-button:active {
+    transform: scale(0.95);
+}
+
+.music-button.play-prompt {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { 
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes textFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); }
+    75% { transform: translateX(-10px); }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 600px) {
+    .login-title {
+        font-size: 1.5em;
+    }
+    
+    .welcome-text {
+        font-size: 1.8em;
+    }
+    
+    .welcome-home {
+        font-size: 2.5em;
+    }
+    
+    .header h1 {
+        font-size: 2em;
+    }
+    
+    .section {
+        padding: 20px;
+    }
+    
+    .facts-list li {
+        font-size: 1em;
+    }
+}
