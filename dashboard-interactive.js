@@ -158,7 +158,7 @@ function reactCharacters(cardType) {
     const snoopyFlower = document.querySelector('.snoopy-flower-char .character-speech');
     
     const reactions = {
-        bio: { loopy: 'That\'s me! 🥰', flower: 'Adorable! 🌸' },
+        bio: { loopy: 'Hi\'Twin ! 🥰', flower: 'Adorable! 🌸' },
         birthday: { loopy: 'Yay! 🎂', flower: 'Celebrate! 🎊' },
         messages: { loopy: 'Love notes! 💌', flower: 'Aww! 💖' },
         love: { loopy: 'I\'m loved! 💕', flower: 'Beautiful! 🌸' },
