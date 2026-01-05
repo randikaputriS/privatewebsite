@@ -11,21 +11,6 @@
     <!-- Custom Cursor Trail Canvas -->
     <canvas id="cursorCanvas"></canvas>
 
-    <!-- Floating Characters: Loopy & Snoopy with Flower -->
-    <div class="floating-characters">
-        <!-- Loopy - Left Side -->
-        <div class="character loopy-char" style="--x: 8%; --y: 25%; --delay: 0s;">
-            <img src="loopy.png" alt="Loopy" class="character-img">
-            <div class="character-speech">Hi! 💕</div>
-        </div>
-        
-        <!-- Snoopy with Flower - Right Side -->
-        <div class="character snoopy-flower-char" style="--x: 85%; --y: 25%; --delay: 0.5s;">
-            <img src="snoopy-flower.png" alt="Snoopy" class="character-img">
-            <div class="character-speech">For you! 🌸</div>
-        </div>
-    </div>
-
     <!-- Floating Decorations -->
     <div class="floating-decorations">
         <span class="float-item flower" style="--delay: 0s; --x: 15%; --y: 45%;">🌸</span>
@@ -42,7 +27,7 @@
         <!-- Header Section -->
         <div class="dashboard-header">
             <h1 class="dashboard-title">Loopy's Corner</h1>
-            <p class="dashboard-subtitle">A special place made just for you</p>
+            <p class="dashboard-subtitle">A special place made just for you 💕</p>
             <div class="title-decoration">
                 <span class="deco-paw">🐾</span>
                 <span class="deco-heart">💖</span>
@@ -54,6 +39,11 @@
         <div class="cards-grid">
             <!-- About You Card -->
             <div class="dashboard-card" onclick="navigateTo('biography.html')" data-card="bio">
+                <!-- Loopy Character on this card -->
+                <div class="card-character loopy-card-char">
+                    <img src="loopy.png" alt="Loopy" class="card-character-img">
+                    <div class="character-speech">Hi! 💕</div>
+                </div>
                 <div class="card-decoration">🌸</div>
                 <div class="card-icon">📖</div>
                 <h3 class="card-title">About You</h3>
@@ -79,6 +69,11 @@
 
             <!-- Monthly Messages Card -->
             <div class="dashboard-card" onclick="navigateTo('monthly-messages.html')" data-card="messages">
+                <!-- Snoopy with Flower Character on this card -->
+                <div class="card-character snoopy-card-char">
+                    <img src="snoopy-flower.png" alt="Snoopy" class="card-character-img">
+                    <div class="character-speech">For you! 🌸</div>
+                </div>
                 <div class="card-decoration">💌</div>
                 <div class="card-icon">💌</div>
                 <h3 class="card-title">Monthly Messages</h3>
@@ -135,7 +130,26 @@
     </div>
 
     <!-- JavaScript Files -->
+    <script src="music.js"></script>
     <script src="dashboard-interactive.js"></script>
     <script src="dashboard-script.js"></script>
+    
+    <!-- Auto-start music on dashboard -->
+    <script>
+        // Wait for music player to be ready
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                if (typeof musicPlayer !== 'undefined') {
+                    console.log('Dashboard loaded - checking music...');
+                    // If music wasn't already playing, start it
+                    const wasPlaying = sessionStorage.getItem('musicPlaying');
+                    if (wasPlaying !== 'true') {
+                        console.log('Starting music on dashboard...');
+                        musicPlayer.play();
+                    }
+                }
+            }, 500);
+        });
+    </script>
 </body>
 </html>
