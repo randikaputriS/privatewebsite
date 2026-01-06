@@ -655,3 +655,10 @@
         padding: 30px 15px;
     }
 }
+/* ============================================
+   FIX CLICK ISSUE - DECORATION ONLY
+   ============================================ */
+.floating-characters,
+.character {
+    pointer-events: none;
+}

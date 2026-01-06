@@ -12,6 +12,19 @@ document.addEventListener('DOMContentLoaded', function() {
     setInterval(checkBirthdayLock, 3600000);
 });
 
+function navigateTo(page) {
+    console.log('Navigating to:', page);
+    
+    // Save music state before navigation
+    if (typeof musicPlayer !== 'undefined' && musicPlayer.isPlaying) {
+        sessionStorage.setItem('musicPlaying', 'true');
+        sessionStorage.setItem('musicTime', musicPlayer.audio.currentTime);
+    }
+    
+    // Navigate immediately (remove fade that might be causing issues)
+    window.location.href = page;
+}
+
 function checkBirthdayLock() {
     const now = new Date();
     const currentYear = now.getFullYear();

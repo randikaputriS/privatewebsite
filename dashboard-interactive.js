@@ -7,10 +7,64 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('🎨 Interactive effects loaded!');
     
     initCursorTrail();
+    initCardClickHandlers(); // NEW: Handle all card clicks here!
     initCardHoverEffects();
     initCharacterInteractions();
     initFloatingHearts();
 });
+
+// ============================================
+// CARD CLICK HANDLERS - FIXED!
+// ============================================
+function initCardClickHandlers() {
+    console.log('🔥 Setting up card click handlers...');
+    
+    const cards = document.querySelectorAll('.dashboard-card');
+    
+    cards.forEach(card => {
+        const cardType = card.getAttribute('data-card');
+        
+        // Add pointer cursor
+        card.style.cursor = 'pointer';
+        
+        // Add click handler
+        card.addEventListener('click', function(e) {
+            console.log('🎯 Card clicked:', cardType);
+            
+            if (card.classList.contains('locked-card')) {
+                // Birthday card is locked, handled separately
+                console.log('🔒 Locked card clicked');
+                return;
+            }
+            
+            // Create hearts animation
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => {
+                    createClickHeart(e.clientX, e.clientY);
+                }, i * 50);
+            }
+            
+            // Navigate based on card type
+            const routes = {
+                'bio': 'biography.html',
+                'messages': 'monthly-messages.html',
+                'love': 'things-i-love.html',
+                'memories': 'memories.html',
+                'foryou': 'for-you.html'
+            };
+            
+            if (routes[cardType]) {
+                console.log('🚀 Navigating to:', routes[cardType]);
+                if (typeof window.navigateTo === 'function') {
+                    window.navigateTo(routes[cardType]);
+                } else {
+                    console.error('❌ navigateTo function not found!');
+                    window.location.href = routes[cardType];
+                }
+            }
+        });
+    });
+}
 
 // ============================================
 // PAW PRINT CURSOR TRAIL
@@ -93,16 +147,6 @@ function initCardHoverEffects() {
             
             reactCharacters(card.getAttribute('data-card'));
         });
-        
-        card.addEventListener('click', function(e) {
-            if (!card.classList.contains('locked-card')) {
-                for (let i = 0; i < 5; i++) {
-                    setTimeout(() => {
-                        createClickHeart(e.clientX, e.clientY);
-                    }, i * 50);
-                }
-            }
-        });
     });
 }
 
@@ -111,7 +155,7 @@ function createFloatingHeart(container) {
     
     const heart = document.createElement('div');
     heart.className = 'floating-heart';
-    heart.textContent = ['💕', '💖', '💗', '💝'][Math.floor(Math.random() * 4)];
+    heart.textContent = ['💕', '💖', '💗', '💓'][Math.floor(Math.random() * 4)];
     heart.style.left = Math.random() * 100 + '%';
     heart.style.animationDuration = (Math.random() * 2 + 2) + 's';
     container.appendChild(heart);
@@ -179,7 +223,7 @@ function initFloatingHearts() {
     setInterval(() => {
         const heart = document.createElement('div');
         heart.className = 'random-floating-heart';
-        heart.textContent = ['💕', '💖', '💗', '💝', '🌸', '🌺'][Math.floor(Math.random() * 6)];
+        heart.textContent = ['💕', '💖', '💗', '💓', '🌸', '🌺'][Math.floor(Math.random() * 6)];
         heart.style.left = Math.random() * 100 + 'vw';
         heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
         heart.style.fontSize = (Math.random() * 20 + 20) + 'px';
