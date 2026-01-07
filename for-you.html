@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Just For You ✨</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="for-you-styles.css">
+</head>
+<body class="for-you-page">
+    <!-- Floating Stars -->
+    <div class="floating-stars">
+        <span class="star" style="--x: 12%; --y: 20%; --delay: 0s;">✨</span>
+        <span class="star" style="--x: 85%; --y: 28%; --delay: 0.5s;">⭐</span>
+        <span class="star" style="--x: 22%; --y: 65%; --delay: 1s;">💫</span>
+        <span class="star" style="--x: 78%; --y: 72%; --delay: 1.5s;">✨</span>
+        <span class="star" style="--x: 45%; --y: 85%; --delay: 2s;">🌟</span>
+    </div>
+
+    <div class="for-you-container">
+        <!-- Back Button -->
+        <button class="back-button" onclick="window.history.back()">← Back to Dashboard</button>
+
+        <!-- Header -->
+        <div class="for-you-header">
+            <h1 class="for-you-title">Just For You ✨</h1>
+            <p class="for-you-subtitle">Words of encouragement when you need them most</p>
+            <div class="header-decoration">
+                <span>💕</span>
+                <span>✨</span>
+                <span>💕</span>
+            </div>
+        </div>
+
+        <!-- Quote Generator Card -->
+        <div class="quote-generator">
+            <div class="quote-card" id="quoteCard">
+                <div class="quote-icon">💝</div>
+                <p class="quote-text" id="quoteText">
+                    Click the button below to receive a special message just for you...
+                </p>
+                <div class="quote-author" id="quoteAuthor"></div>
+            </div>
+            
+            <button class="generate-button" id="generateBtn">
+                <span class="btn-icon">✨</span>
+                <span class="btn-text">Get Your Message</span>
+            </button>
+        </div>
+
+        <!-- Encouragement Cards Grid -->
+        <div class="encouragement-section">
+            <h2 class="section-title">Remember These Always 💕</h2>
+            
+            <div class="encouragement-grid">
+                <!-- Card 1 -->
+                <div class="encouragement-card">
+                    <div class="card-icon">🌟</div>
+                    <h3 class="card-title">You Are Strong</h3>
+                    <p class="card-text">
+                        Even when things feel difficult, remember how many challenges you've already overcome. 
+                        You're stronger than you think, and you can handle whatever comes your way.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="encouragement-card">
+                    <div class="card-icon">💕</div>
+                    <h3 class="card-title">You Are Loved</h3>
+                    <p class="card-text">
+                        Never doubt that you are loved. Your presence makes the world brighter. 
+                        You matter more than you know, and you are cherished exactly as you are.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="encouragement-card">
+                    <div class="card-icon">🌸</div>
+                    <h3 class="card-title">You Are Beautiful</h3>
+                    <p class="card-text">
+                        Your beauty isn't just in how you look—it's in your kind heart, your soft soul, 
+                        and the way you care for others. That kind of beauty never fades.
+                    </p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="encouragement-card">
+                    <div class="card-icon">✨</div>
+                    <h3 class="card-title">You Are Enough</h3>
+                    <p class="card-text">
+                        You don't need to be perfect. You don't need to change. You are enough, 
+                        just as you are, right now. Your worth isn't measured by what you do—it's inherent.
+                    </p>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="encouragement-card">
+                    <div class="card-icon">🦋</div>
+                    <h3 class="card-title">You Are Growing</h3>
+                    <p class="card-text">
+                        Every day, you're learning and growing. Be patient with yourself. 
+                        Progress isn't always visible, but it's happening. You're becoming who you're meant to be.
+                    </p>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="encouragement-card">
+                    <div class="card-icon">🌈</div>
+                    <h3 class="card-title">Better Days Are Coming</h3>
+                    <p class="card-text">
+                        When things feel dark, remember that storms don't last forever. 
+                        Better days are ahead. Keep going—your breakthrough is closer than you think.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Self-Care Reminders -->
+        <div class="self-care-section">
+            <h2 class="section-title">Take Care of Yourself 🌸</h2>
+            
+            <div class="self-care-list">
+                <div class="self-care-item">
+                    <span class="care-icon">💧</span>
+                    <span class="care-text">Drink water and stay hydrated</span>
+                </div>
+                <div class="self-care-item">
+                    <span class="care-icon">😴</span>
+                    <span class="care-text">Get enough rest—you deserve it</span>
+                </div>
+                <div class="self-care-item">
+                    <span class="care-icon">🍽️</span>
+                    <span class="care-text">Eat something nourishing today</span>
+                </div>
+                <div class="self-care-item">
+                    <span class="care-icon">🌬️</span>
+                    <span class="care-text">Take deep breaths when stressed</span>
+                </div>
+                <div class="self-care-item">
+                    <span class="care-icon">📱</span>
+                    <span class="care-text">Take breaks from screens</span>
+                </div>
+                <div class="self-care-item">
+                    <span class="care-icon">💝</span>
+                    <span class="care-text">Be kind to yourself always</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="for-you-footer">
+            <div class="footer-decoration">🐾 ✨ 🐾</div>
+            <p class="footer-text">You are always in my thoughts 💕</p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="music.js"></script>
+    <script src="for-you-script.js"></script>
+    
+    <!-- Continue music -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof musicPlayer !== 'undefined') {
+                const wasPlaying = sessionStorage.getItem('musicPlaying');
+                if (wasPlaying === 'true') {
+                    const currentTime = sessionStorage.getItem('musicTime');
+                    if (currentTime) {
+                        musicPlayer.audio.currentTime = parseFloat(currentTime);
+                    }
+                    musicPlayer.play();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Memories 📸</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="memories-styles.css">
+</head>
+<body class="memories-page">
+    <!-- Floating Photos Background -->
+    <div class="floating-photos">
+        <span class="float-photo" style="--x: 15%; --y: 25%; --delay: 0s;">📸</span>
+        <span class="float-photo" style="--x: 80%; --y: 35%; --delay: 0.8s;">🌸</span>
+        <span class="float-photo" style="--x: 25%; --y: 65%; --delay: 1.2s;">💕</span>
+        <span class="float-photo" style="--x: 70%; --y: 70%; --delay: 1.8s;">✨</span>
+    </div>
+
+    <div class="memories-container">
+        <!-- Back Button -->
+        <button class="back-button" onclick="window.history.back()">← Back to Dashboard</button>
+
+        <!-- Header -->
+        <div class="memories-header">
+            <h1 class="memories-title">Our Memories 📸</h1>
+            <p class="memories-subtitle">Moments we've shared together</p>
+            <div class="header-decoration">
+                <span>🌸</span>
+                <span>💕</span>
+                <span>🌸</span>
+            </div>
+        </div>
+
+        <!-- Timeline -->
+        <div class="timeline">
+            <!-- Memory 1: The Beginning -->
+            <div class="memory-item left">
+                <div class="memory-card">
+                    <div class="memory-date">January 16, 2025</div>
+                    <div class="memory-photo-placeholder">
+                        <div class="placeholder-icon">📸</div>
+                        <p class="placeholder-text">Add your photo here</p>
+                    </div>
+                    <h3 class="memory-title">The Day I Asked 💕</h3>
+                    <p class="memory-description">
+                        The day I asked, "May I be your girlfriend?" A moment that changed everything. 
+                        The beginning of something beautiful, something worth remembering forever.
+                    </p>
+                    <div class="memory-tags">
+                        <span class="tag">Special Day</span>
+                        <span class="tag">First</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Memory 2: Example -->
+            <div class="memory-item right">
+                <div class="memory-card">
+                    <div class="memory-date">Add Date Here</div>
+                    <div class="memory-photo-placeholder">
+                        <div class="placeholder-icon">🌸</div>
+                        <p class="placeholder-text">Your memory photo</p>
+                    </div>
+                    <h3 class="memory-title">Add Your Memory Title</h3>
+                    <p class="memory-description">
+                        Write about a special moment you shared. This could be a fun day out, 
+                        a quiet moment together, or anything that made you smile.
+                    </p>
+                    <div class="memory-tags">
+                        <span class="tag">Add Tag</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Memory 3: Example -->
+            <div class="memory-item left">
+                <div class="memory-card">
+                    <div class="memory-date">Add Date Here</div>
+                    <div class="memory-photo-placeholder">
+                        <div class="placeholder-icon">💕</div>
+                        <p class="placeholder-text">Your memory photo</p>
+                    </div>
+                    <h3 class="memory-title">Another Special Moment</h3>
+                    <p class="memory-description">
+                        Every moment with you is worth remembering. Add your own memories here 
+                        to create a beautiful timeline of your journey together.
+                    </p>
+                    <div class="memory-tags">
+                        <span class="tag">Together</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add More Memory Card -->
+            <div class="memory-item center">
+                <div class="add-memory-card">
+                    <div class="add-icon">➕</div>
+                    <h3 class="add-title">More Memories Coming</h3>
+                    <p class="add-text">Keep adding special moments as they happen...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Memory Stats -->
+        <div class="memory-stats">
+            <div class="stat-card">
+                <div class="stat-number" id="totalMemories">3</div>
+                <div class="stat-label">Memories Captured</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="daysTogether"><!-- JS will calculate --></div>
+                <div class="stat-label">Days Together</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">∞</div>
+                <div class="stat-label">More to Come</div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="memories-footer">
+            <div class="footer-decoration">🐾 📸 🐾</div>
+            <p class="footer-text">Every moment with you is worth remembering</p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="music.js"></script>
+    <script src="memories-script.js"></script>
+    
+    <!-- Continue music -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof musicPlayer !== 'undefined') {
+                const wasPlaying = sessionStorage.getItem('musicPlaying');
+                if (wasPlaying === 'true') {
+                    const currentTime = sessionStorage.getItem('musicTime');
+                    if (currentTime) {
+                        musicPlayer.audio.currentTime = parseFloat(currentTime);
+                    }
+                    musicPlayer.play();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

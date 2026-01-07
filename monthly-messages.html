@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monthly Messages 💌</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="monthly-messages-styles.css">
+</head>
+<body class="monthly-messages-page">
+    <!-- Floating decorations -->
+    <div class="floating-elements">
+        <span class="float-letter" style="--x: 10%; --y: 20%; --delay: 0s;">💌</span>
+        <span class="float-letter" style="--x: 85%; --y: 30%; --delay: 0.5s;">💕</span>
+        <span class="float-letter" style="--x: 20%; --y: 70%; --delay: 1s;">💖</span>
+        <span class="float-letter" style="--x: 75%; --y: 60%; --delay: 1.5s;">✉️</span>
+    </div>
+
+    <div class="messages-container">
+        <!-- Back Button -->
+        <button class="back-button" onclick="window.history.back()">← Back to Dashboard</button>
+
+        <!-- Header -->
+        <div class="messages-header">
+            <h1 class="messages-title">Monthly Messages 💌</h1>
+            <p class="messages-subtitle">A special note for you on the 16th of each month</p>
+            <div class="header-decoration">
+                <span>💕</span>
+                <span>💌</span>
+                <span>💕</span>
+            </div>
+        </div>
+
+        <!-- Current Date Display -->
+        <div class="date-card">
+            <div class="calendar-icon">📅</div>
+            <p class="current-date" id="currentDate">Loading date...</p>
+        </div>
+
+        <!-- Message Display Card -->
+        <div class="message-display-card" id="messageCard">
+            <div class="envelope-animation" id="envelope">
+                <div class="envelope-flap"></div>
+                <div class="envelope-body"></div>
+                <div class="letter-icon">💌</div>
+            </div>
+            
+            <div class="message-content" id="messageContent">
+                <div class="message-text" id="messageText">
+                    <!-- Message akan muncul di sini -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Status Info -->
+        <div class="status-info" id="statusInfo">
+            <p class="status-text" id="statusText"></p>
+        </div>
+
+        <!-- Past Messages Archive -->
+        <div class="archive-section">
+            <h3 class="archive-title">📚 Past Messages</h3>
+            <div class="archive-grid" id="archiveGrid">
+                <!-- Past messages akan muncul di sini -->
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="messages-footer">
+            <div class="footer-decoration">🐾 💕 🐾</div>
+            <p class="footer-text">A new message awaits you every 16th</p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="messages.js"></script>
+    <script src="music.js"></script>
+    <script src="monthly-messages-script.js"></script>
+    
+    <!-- Continue music -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof musicPlayer !== 'undefined') {
+                const wasPlaying = sessionStorage.getItem('musicPlaying');
+                if (wasPlaying === 'true') {
+                    const currentTime = sessionStorage.getItem('musicTime');
+                    if (currentTime) {
+                        musicPlayer.audio.currentTime = parseFloat(currentTime);
+                    }
+                    musicPlayer.play();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
