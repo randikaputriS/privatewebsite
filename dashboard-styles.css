@@ -662,3 +662,29 @@
 .character {
     pointer-events: none;
 }
+/* ============================================
+   LOCKED CARD - NOT ALLOWED CURSOR
+   ============================================ */
+.dashboard-card.locked-card {
+    cursor: not-allowed !important;
+}
+
+.dashboard-card.locked-card:hover {
+    transform: translateY(-8px) scale(1.01);
+}
+
+.countdown-text {
+    font-size: 1.1em;
+    color: #e91e63;
+    margin-top: 15px;
+    font-weight: 500;
+    padding: 8px 20px;
+    background: rgba(233, 30, 99, 0.1);
+    border-radius: 20px;
+    line-height: 1.6;
+}
+
+.countdown-text span {
+    display: block;
+    margin-top: 5px;
+}

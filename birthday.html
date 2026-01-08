@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday! 🎂</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="birthday-styles.css">
+</head>
+<body class="birthday-page">
+    <!-- Confetti Animation -->
+    <div class="confetti-container" id="confettiContainer"></div>
+    
+    <!-- Balloons -->
+    <div class="balloons">
+        <div class="balloon" style="--x: 10%; --delay: 0s; --color: #ff6b9d;">🎈</div>
+        <div class="balloon" style="--x: 25%; --delay: 0.5s; --color: #ffd1dc;">🎈</div>
+        <div class="balloon" style="--x: 75%; --delay: 1s; --color: #ffb3c1;">🎈</div>
+        <div class="balloon" style="--x: 90%; --delay: 1.5s; --color: #ff8fa3;">🎈</div>
+    </div>
+
+    <div class="birthday-container">
+        <!-- Back Button -->
+        <button class="back-button" onclick="window.history.back()">← Back to Dashboard</button>
+
+        <!-- Main Birthday Card -->
+        <div class="birthday-card">
+            <!-- Animated Cake -->
+            <div class="cake-container">
+                <div class="cake">
+                    <div class="cake-layer layer-3"></div>
+                    <div class="cake-layer layer-2"></div>
+                    <div class="cake-layer layer-1"></div>
+                    <div class="candle">
+                        <div class="flame"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Birthday Message -->
+            <div class="birthday-message">
+                <h1 class="birthday-title">Happy Birthday, Loopy! 🎂</h1>
+                <p class="birthday-subtitle">January 8, 2026</p>
+                
+                <div class="age-display">
+                    <div class="age-number">22</div>
+                    <p class="age-text">Years of Being Amazing!</p>
+                </div>
+
+                <div class="birthday-wishes">
+                    <p class="wish-text">
+                        🎉 Today is YOUR special day! 🎉
+                    </p>
+                    <p class="wish-text">
+                        On this day, I want to remind you how incredibly special you are. 
+                        Another year older means another year of memories, growth, and beautiful moments.
+                    </p>
+                    <p class="wish-text">
+                        You bring so much joy to everyone around you, and I hope this year brings 
+                        you everything you've been wishing for and more. 
+                    </p>
+                    <p class="wish-text">
+                        May this year be filled with love, laughter, happiness, and all the cute things 
+                        you love - Loopy, Snoopy, pink everything, and endless smiles! 💕
+                    </p>
+                    <p class="wish-text special-wish">
+                        <strong>Here's to you, to us, and to all the beautiful days ahead! 🌸</strong>
+                    </p>
+                </div>
+
+                <!-- Birthday Letter Section -->
+                <div class="birthday-letter">
+                    <h2 class="letter-title">A Special Letter Just For You 💌</h2>
+                    <div class="letter-content">
+                        <!-- 
+                            ⚠️ EDIT YOUR PERSONAL LETTER HERE ⚠️
+                            Write your heartfelt birthday message
+                        -->
+                        <p>Dear Loopy,</p>
+                        
+                        <p>Happy birthday to the most amazing person I know. As you turn 22, I want you to know how grateful I am to have you in my life.</p>
+                        
+                        <p>Your soft heart, your loyalty, and the way you love so completely - these are the things that make you irreplaceable. Never change who you are, because you are perfect just the way you are.</p>
+                        
+                        <p>I hope this year brings you closer to your dreams, fills your days with happiness, and reminds you every single day how loved and cherished you are.</p>
+                        
+                        <p>Thank you for being you. Thank you for being in my life. Here's to many more birthdays together! 🎂💕</p>
+                        
+                        <p class="letter-signature">With all my love,<br>Always & Forever 💕</p>
+                    </div>
+                </div>
+
+                <!-- Birthday Gifts Section -->
+                <div class="birthday-gifts">
+                    <h2 class="gifts-title">Your Birthday Gifts 🎁</h2>
+                    <div class="gifts-grid">
+                        <div class="gift-box">
+                            <div class="gift-icon">💕</div>
+                            <h3 class="gift-title">Endless Love</h3>
+                            <p class="gift-text">Every single day, forever</p>
+                        </div>
+                        <div class="gift-box">
+                            <div class="gift-icon">🌸</div>
+                            <h3 class="gift-title">Beautiful Moments</h3>
+                            <p class="gift-text">More memories to create together</p>
+                        </div>
+                        <div class="gift-box">
+                            <div class="gift-icon">✨</div>
+                            <h3 class="gift-title">Happiness</h3>
+                            <p class="gift-text">May your year be filled with joy</p>
+                        </div>
+                        <div class="gift-box">
+                            <div class="gift-icon">🎀</div>
+                            <h3 class="gift-title">Surprises</h3>
+                            <p class="gift-text">Many more to come this year!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Birthday Countdown to Next Year -->
+                <div class="next-birthday-section">
+                    <p class="next-birthday-text">
+                        And I can't wait to celebrate with you again next year! 💕
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="birthday-footer">
+            <div class="footer-decoration">🎂 💕 🎂</div>
+            <p class="footer-text">Made with love, just for you</p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="music.js"></script>
+    <script src="birthday-script.js"></script>
+    
+    <!-- Continue music -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof musicPlayer !== 'undefined') {
+                const wasPlaying = sessionStorage.getItem('musicPlaying');
+                if (wasPlaying === 'true') {
+                    const currentTime = sessionStorage.getItem('musicTime');
+                    if (currentTime) {
+                        musicPlayer.audio.currentTime = parseFloat(currentTime);
+                    }
+                    musicPlayer.play();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

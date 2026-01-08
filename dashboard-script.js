@@ -47,7 +47,7 @@ function checkBirthdayLock() {
         birthdayCard.classList.remove('locked-card');
         birthdayCard.style.cursor = 'pointer';
         birthdayCard.onclick = function() {
-            navigateTo('birthday.html');
+            window.navigateTo('birthday.html');
         };
     } else {
         // Calculate days until next birthday
@@ -61,26 +61,99 @@ function checkBirthdayLock() {
         // Calculate difference
         const diffTime = nextBirthday - now;
         const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        const diffHours = Math.floor((diffTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         
-        // Update countdown text
-        if (diffDays === 1) {
-            countdownText.textContent = "Unlocks tomorrow! 🎂";
+        // Update countdown text with MORE DETAIL
+        if (diffDays === 0) {
+            countdownText.innerHTML = `Unlocks in ${diffHours} hours! 🎂`;
+        } else if (diffDays === 1) {
+            countdownText.innerHTML = `Unlocks tomorrow!<br><span style="font-size: 0.9em;">${diffHours} hours remaining</span>`;
+        } else if (diffDays <= 7) {
+            countdownText.innerHTML = `Unlocks in ${diffDays} days<br><span style="font-size: 0.9em;">Coming soon! 🎉</span>`;
         } else if (diffDays <= 30) {
-            countdownText.textContent = `Unlocks in ${diffDays} days`;
+            countdownText.innerHTML = `Unlocks in ${diffDays} days`;
         } else {
             const monthsUntil = Math.floor(diffDays / 30);
-            countdownText.textContent = `Unlocks in ~${monthsUntil} month${monthsUntil > 1 ? 's' : ''}`;
+            const remainingDays = diffDays % 30;
+            countdownText.innerHTML = `Unlocks in ${monthsUntil} month${monthsUntil > 1 ? 's' : ''}<br><span style="font-size: 0.9em;">and ${remainingDays} days</span>`;
         }
+        
+        // Set cursor to not-allowed
+        birthdayCard.style.cursor = 'not-allowed';
         
         // Add click handler to show message
         birthdayCard.onclick = function() {
-            showLockedMessage(diffDays);
+            showLockedMessage(diffDays, diffHours);
         };
         
-        console.log(`Birthday locked. ${diffDays} days remaining.`);
+        console.log(`Birthday locked. ${diffDays} days and ${diffHours} hours remaining.`);
     }
 }
 
+function showLockedMessage(daysRemaining, hoursRemaining) {
+    let message;
+    if (daysRemaining === 0) {
+        message = `Just ${hoursRemaining} more hours until your special day! 🎂💕\n\nCome back soon!`;
+    } else if (daysRemaining === 1) {
+        message = `Your birthday surprise unlocks tomorrow!\n\nJust ${hoursRemaining} more hours to wait! 🎂💕`;
+    } else {
+        message = `This special gift unlocks on January 8th.\n\nCome back in ${daysRemaining} days! 🎂💕`;
+    }
+    
+    // Create temporary message overlay
+    const overlay = document.createElement('div');
+    overlay.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        animation: fadeIn 0.3s ease;
+    `;
+    
+    const messageBox = document.createElement('div');
+    messageBox.style.cssText = `
+        background: white;
+        padding: 40px;
+        border-radius: 20px;
+        text-align: center;
+        max-width: 400px;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        animation: slideUp 0.4s ease;
+    `;
+    
+    messageBox.innerHTML = `
+        <div style="font-size: 4em; margin-bottom: 20px;">🔒</div>
+        <h2 style="color: #e91e63; margin-bottom: 15px; font-size: 1.8em;">Birthday Corner Locked</h2>
+        <p style="color: #5d1f1f; font-size: 1.2em; line-height: 1.6; white-space: pre-line;">${message}</p>
+        <button onclick="this.parentElement.parentElement.remove()" style="
+            margin-top: 25px;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #e91e63 0%, #c2185b 100%);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            font-family: Georgia, serif;
+        ">Okay</button>
+    `;
+    
+    overlay.appendChild(messageBox);
+    document.body.appendChild(overlay);
+    
+    // Close on overlay click
+    overlay.onclick = function(e) {
+        if (e.target === overlay) {
+            overlay.remove();
+        }
+    };
+}
 function showLockedMessage(daysRemaining) {
     const message = daysRemaining === 1 
         ? "Come back tomorrow for a special birthday surprise! 🎂💕"
