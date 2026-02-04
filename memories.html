@@ -124,24 +124,11 @@
         </div>
     </div>
 
-    <!-- Scripts -->
-    <script src="music.js"></script>
+    <!-- Load Scripts -->
     <script src="memories-script.js"></script>
-    
-    <!-- Continue music -->
+    <script src="page-music.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            if (typeof musicPlayer !== 'undefined') {
-                const wasPlaying = sessionStorage.getItem('musicPlaying');
-                if (wasPlaying === 'true') {
-                    const currentTime = sessionStorage.getItem('musicTime');
-                    if (currentTime) {
-                        musicPlayer.audio.currentTime = parseFloat(currentTime);
-                    }
-                    musicPlayer.play();
-                }
-            }
-        });
+        startPageMusic('wishlist_taylor.mp3');
     </script>
 </body>
 </html>
