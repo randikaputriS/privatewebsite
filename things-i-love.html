@@ -32,10 +32,7 @@
                     <span class="poem-date">January 2025</span>
                 </div>
                 <div class="poem-content">
-                    <!-- 
-                        ⚠️ EDIT YOUR POEM HERE ⚠️
-                        Write your poem below
-                    -->
+                    <!-- ⚠️ EDIT YOUR POEM HERE ⚠️ -->
                     <p class="poem-line">In a world of chaos, you bring peace,</p>
                     <p class="poem-line">A gentle soul that makes worries cease.</p>
                     <p class="poem-line">Your smile, a light in darkest night,</p>
@@ -58,9 +55,7 @@
                     <span class="poem-date">January 2025</span>
                 </div>
                 <div class="poem-content">
-                    <!-- 
-                        ⚠️ EDIT YOUR POEM HERE ⚠️
-                    -->
+                    <!-- ⚠️ EDIT YOUR POEM HERE ⚠️ -->
                     <p class="poem-line">They call you a crybaby, but I see more,</p>
                     <p class="poem-line">A heart so tender, feelings to the core.</p>
                     <p class="poem-line">You feel deeply, you love with might,</p>
@@ -83,9 +78,7 @@
                     <span class="poem-date">January 2025</span>
                 </div>
                 <div class="poem-content">
-                    <!-- 
-                        ⚠️ EDIT YOUR POEM HERE ⚠️
-                    -->
+                    <!-- ⚠️ EDIT YOUR POEM HERE ⚠️ -->
                     <p class="poem-line">You love pink like cherry blossoms in spring,</p>
                     <p class="poem-line">And red like the passion that love can bring.</p>
                     <p class="poem-line">These colors suit you, soft yet bold,</p>
@@ -118,26 +111,11 @@
         </div>
     </div>
 
-    <!-- Scripts -->
-    <script src="music.js"></script>
+    <!-- Load Scripts -->
+    <script src="poems-script.js"></script>
+    <script src="page-music.js"></script>
     <script>
-        function goBack() {
-            window.history.back();
-        }
-        
-        // Continue music if playing
-        document.addEventListener('DOMContentLoaded', function() {
-            if (typeof musicPlayer !== 'undefined') {
-                const wasPlaying = sessionStorage.getItem('musicPlaying');
-                if (wasPlaying === 'true') {
-                    const currentTime = sessionStorage.getItem('musicTime');
-                    if (currentTime) {
-                        musicPlayer.audio.currentTime = parseFloat(currentTime);
-                    }
-                    musicPlayer.play();
-                }
-            }
-        });
+        startPageMusic('terbuang_dalam_waktu.mp3');
     </script>
 </body>
 </html>
